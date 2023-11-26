@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sandesh Shrestha - Data Scientist</title>
+    <style>
+        /* Add the following style to ensure code is not cut off */
+        .code-snippet code {
+            white-space: pre-wrap;
+        }
+        .card{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+        </ul>
+    </nav>
+
+    <section id="blog">
+        <h1>Exploring Gapminder Dataset</h1>
+        <!-- Blog Card 1 -->
+        <div class="card">
+            
+            <div class="card-content">
+                <h3>Loading Dataset and Show data Summary</h3>
+                <img src="b1.png" alt="EDA Output">
+                <p class="narrative">
+                    I take you through a comprehensive Exploratory Data Analysis (EDA) of the Gapminder dataset.
+                    The Gapminder dataset contains a wealth of information about countries, including indicators such as population, GDP per capita, and life expectancy.
+                    EDA is a crucial step in understanding the characteristics of the data and identifying patterns or trends.
+                    Let's start by loading the dataset and performing some initial exploration.
+                </p>
+                <div class="code-snippet">
+                    <pre>
+                        <code>
+                            # R code for EDA
+                            library(gapminder)
+                            summary(gapminder)
+                        </code>
+                    </pre>
+                </div>
+                <p>The dataset "gapminder" contains information on various countries, including their continent, year, life expectancy, population, and GDP per capita. With 1704 observations, it provides a comprehensive overview of global socio-economic indicators from 1952 to 2007, revealing diverse trends and disparities among nations.</p>
+                <p class="narrative">
+                    The summary function provides a quick overview of the dataset, including measures of central tendency and spread.
+                    As we progress, we'll visualize relationships between variables and gain insights into the socio-economic factors influencing life expectancy.
+                    Stay tuned for the visualizations and key findings in the next sections.
+                </p>
+            </div>
+        <!-- </div> -->
+
+        <!-- Visualization Section -->
+        <!-- Visualization Section -->
+<!-- <div class="card"> -->
+    
+    <div class="card-content">
+        <h3>Data Visualization: Uncovering Trends</h3>
+        <img src="b2.png" alt="Visualization Output">
+        <p class="narrative">
+            Visualizations are powerful tools for understanding complex relationships within data.
+            In this section, we leverage the capabilities of R's ggplot2 library to create compelling visualizations that uncover trends and patterns in the Gapminder dataset.
+            The Gapminder dataset encompasses various socio-economic indicators for countries over time, providing a rich source for exploration.
+            Let's delve into some visualizations to gain insights into the dynamics of global development.
+        </p>
+        <div class="code-snippet">
+            <pre>
+                <code>
+                    # R code for data visualization
+                    library(ggplot2)
+
+                    # Example: Create a scatter plot of Life Expectancy vs. GDP per Capita
+                    ggplot(gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
+                        geom_point() +
+                        labs(title = "Life Expectancy vs. GDP per Capita",
+                             x = "GDP per Capita",
+                             y = "Life Expectancy",
+                             color = "Continent") +
+                        theme_minimal()
+                </code>
+            </pre>
+        </div>
+        <p class="narrative">
+            The provided code snippet is a basic example of creating a scatter plot to explore the relationship between Life Expectancy and GDP per Capita, color-coded by continent.
+            Visualizations play a crucial role in communicating complex information in a digestible format, aiding in the interpretation of data trends.
+        </p>
+        <h6>Other Visualizations</h6>
+        <pre>
+            <code>
+                # Line plot: Life Expectancy trends over the years
+                ggplot(gapminder, aes(x = year, y = lifeExp, group = country, color = continent)) +
+                geom_line(alpha = 0.5) +
+                labs(title = "Life Expectancy Trends Over the Years",
+                    x = "Year",
+                    y = "Life Expectancy",
+                    color = "Continent") +
+                theme_minimal()
+
+                # Bar plot: Average GDP per Capita by Continent
+                ggplot(gapminder, aes(x = continent, y = gdpPercap)) +
+                geom_bar(stat = "summary", fun = "mean", fill = "#86bf91", color = "#4CAF50") +
+                labs(title = "Average GDP per Capita by Continent",
+                    x = "Continent",
+                    y = "Average GDP per Capita") +
+                theme_minimal()
+            </code>
+        </pre>
+    </div>
+<!-- </div> -->
+
+        <!-- Analysis Section -->
+        <!-- Analysis Section -->
+<!-- <div class="card"> -->
+    <div class="card-content">
+        <h3>Data Analysis: Extracting Insights</h3>
+        <img src="b3.png" alt="Analysis Output">
+
+        <p class="narrative">
+            Building on my exploratory analysis, this section takes a deeper dive into the Gapminder dataset to extract meaningful insights.
+            While exploratory analysis provides an overview, data analysis involves applying statistical techniques, hypothesis testing, or other advanced methods to uncover patterns and draw conclusions.
+            Let's employ R to conduct insightful data analysis and derive valuable information from the dataset.
+        </p>
+        <div class="code-snippet">
+            <pre>
+                <code>
+                    # R code for data analysis
+                    # Example: Conduct a hypothesis test for life expectancy differences between continents
+                    # Using ANOVA for demonstration
+                    model <- aov(lifeExp ~ continent, data = gapminder)
+                    summary(model)
+                    
+                </code>
+            </pre>
+        </div>
+        <p class="narrative">
+            In the provided code snippet, we perform a basic analysis using Analysis of Variance (ANOVA) to test for differences in life expectancy among continents.
+            This is just one example, and you can customize the analysis based on your specific research questions and objectives.
+            Advanced statistical techniques can help uncover relationships and provide a more in-depth understanding of the underlying patterns in the data.
+        </p>
+        <p>
+            The analysis of variance (ANOVA) results for the model testing the impact of continent on life expectancy in the "gapminder" dataset indicate a highly significant effect (p < 0.001). The F-statistic of 408.7 suggests significant variability among continents in influencing life expectancy.
+        </p>
+    </div>
+<!-- </div> -->
+
+<!-- Modeling Section -->
+<!-- <div class="card"> -->
+    <div class="card-content">
+        <h3>Modeling: Predictive Analytics</h3>
+        <img src="b4.png" alt="Modeling Output">
+
+        <p class="narrative">
+            In this section, we embark on the exciting journey of predictive analytics by building models on the Gapminder dataset.
+            Predictive modeling involves using machine learning algorithms to make informed predictions based on historical data.
+            We'll explore various models, such as linear regression, random forests, or any other suitable models that align with my project objectives.
+            Let's delve into R code to build and evaluate these predictive models.
+        </p>
+        <div class="code-snippet">
+            <pre>
+                <code>
+                    # R code for modeling and evaluation
+                    # Example: Linear Regression for predicting life expectancy
+                    model_lm <- lm(lifeExp ~ gdpPercap + pop + continent, data = gapminder)
+                    summary(model_lm)
+
+                    # Model Evaluation using Cross-Validation
+                    library(caret)
+                    set.seed(123)
+                    cv_results <- train(
+                        lifeExp ~ gdpPercap + pop + continent,
+                        data = gapminder,
+                        method = "lm",
+                        trControl = trainControl(method = "cv", number = 5)
+                    )
+                    print(cv_results)
+                </code>
+            </pre>
+        </div>
+        <p class="narrative">
+            In the provided code snippet, we not only build a linear regression model but also perform model evaluation using cross-validation.
+            Cross-validation helps assess the model's performance on different subsets of the data, providing a more robust evaluation.
+        </p>
+    </div>
+<!-- </div> -->
+
+
+<!-- Findings Section -->
+<!-- <div class="card"> -->
+    <div class="card-content">
+        <h3>Key Findings: Understanding the Story</h3>
+        <p class="narrative">
+            In this final section, we present the key findings derived from the EDA, visualizations, analysis, and modeling.
+            These findings contribute to a comprehensive understanding of the socio-economic factors influencing life expectancy in the Gapminder dataset.
+            As a data scientist, interpreting and communicating these findings are crucial aspects of the project.
+        </p>
+
+        <!-- EDA Findings -->
+        <h4>Exploratory Data Analysis (EDA)</h4>
+        <p class="narrative">
+            The exploratory data analysis revealed significant variations in life expectancy across continents.
+            Africa generally had lower life expectancies compared to other continents, while Europe and Oceania showed higher life expectancies.
+            This initial observation prompted further investigation into the underlying factors contributing to these disparities.
+        </p>
+
+        <!-- Visualization Findings -->
+        <h4>Data Visualization: Uncovering Trends</h4>
+        <p class="narrative">
+            Visualizations played a crucial role in uncovering trends. The scatter plot of Life Expectancy vs. GDP per Capita highlighted a positive correlation, indicating that higher GDP per capita generally correlates with higher life expectancy.
+            Additionally, continent-wise color coding allowed us to discern regional patterns, providing a more nuanced understanding of the relationships.
+        </p>
+
+
+
+        <!-- Modeling Findings -->
+        <h4>Modeling: Predictive Analytics</h4>
+        <p class="narrative">
+            Predictive modeling using linear regression provided a basis for predicting life expectancy based on GDP per capita, population, and continent.
+            The cross-validated model exhibited reasonable performance with an RMSE of 8.39 and an R-squared value of 0.58, indicating that the model explains 58% of the variance in life expectancy.
+        </p>
+
+        <!-- Conclusion -->
+        <h3>Conclusion</h3>
+        <p class="narrative">
+            In conclusion, my comprehensive analysis of the Gapminder dataset sheds light on the intricate interplay between socio-economic factors and life expectancy.
+            The disparities observed among continents underscore the importance of addressing region-specific challenges to improve overall global health outcomes.
+        </p>
+
+        <!-- Recommendations -->
+        <h3>Recommendations</h3>
+        <p class="narrative">
+            Based on my findings, targeted interventions in regions with lower life expectancies, particularly in Africa, may contribute to improving overall global life expectancy.
+            Policymakers and public health officials can leverage these insights to implement evidence-based strategies and allocate resources more effectively.
+        </p>
+    </div>
+</div>
+
+
+    </section>
+</body>
+</html>
